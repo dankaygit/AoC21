@@ -40,7 +40,8 @@ data = importer.read()
 coords = [0,0]
 
 ## Parse the data according to the rules
-for line in data[:-1]:
+for line in data[:-1]: ## Something weird is happening when I read data.
+    # Even though the csv file doesn't have an empty line, the data list does... Why does this happen?
     val = int(line[1])
     if line[0] == "forward":
         coords[0] += val
@@ -51,3 +52,19 @@ for line in data[:-1]:
 
 print(coords, coords[0] * coords[1])
 
+
+## Part B
+## Parse the data according to the rules
+coords = [0,0]
+aim = 0
+for line in data[:-1]:
+    val = int(line[1])
+    if line[0] == "forward":
+        coords[0] += val
+        coords[1] += val*aim
+    elif line[0] == "down":
+        aim += val
+    else:
+        aim -= val
+
+print(coords, coords[0] * coords[1])
