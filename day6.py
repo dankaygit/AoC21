@@ -1,4 +1,3 @@
-import numpy as np
 from data_import import DataImporter
 
 importer = DataImporter("day6.csv", sep=",")
